@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <title>Recall — Your space to learn</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Recall home"><span class="brand-mark">✳</span> recall<span class="brand-dot">.</span></a>
+    <span class="topbar-note">A little progress every day <span>✦</span></span>
+    <button class="button button-dark" id="new-set" type="button"><span>＋</span> Create a set</button>
+  </header>
+
+  <main>
+    <section id="home-view">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PERSONAL STUDY SPACE</div>
+          <h1>Make it stick<span>.</span></h1>
+          <p>Big ideas, little cards. Create your own flashcards and make learning feel a little easier.</p>
+          <button class="button button-dark hero-button" id="hero-create" type="button">Start a new set <span>↗</span></button>
+          <div class="hero-footnote"><span>✳</span> MADE FOR CURIOUS MINDS</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-sparkle sparkle-one">✳</div>
+          <div class="art-sparkle sparkle-two">✦</div>
+          <div class="art-card art-card-back"><span>KEEP GOING</span><strong>You've got this!</strong><span>✦ &nbsp; ✦ &nbsp; ✦</span></div>
+          <div class="art-card art-card-front"><span>TERM &nbsp; 01 / 12</span><strong>Curiosity</strong><div class="art-line"></div><small>The beginning of<br>everything.</small><div class="art-bottom">✳ <span>FLIP TO LEARN ↗</span></div></div>
+          <div class="art-label">A BRIGHT IDEA <span>↗</span></div>
+        </div>
+      </div>
+      <section class="library" aria-labelledby="library-title">
+        <div class="section-heading">
+          <div><div class="eyebrow"><span class="eyebrow-dot"></span> YOUR COLLECTION</div><h2 id="library-title">Your study sets <span>✳</span></h2><p>All your knowledge, in one happy place.</p></div>
+          <span class="set-count" id="set-count">0 SETS</span>
+        </div>
+        <div id="set-list" class="set-grid"></div>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">✳</div>
+          <h3>A fresh start looks good on you.</h3>
+          <p>No study sets yet. Make your first one and let the learning begin.</p>
+          <button class="button button-outline" id="empty-create" type="button">＋ &nbsp; Create your first set</button>
+        </div>
+      </section>
+    </section>
+
+    <section id="editor-view" class="workspace" hidden>
+      <button class="back-link" type="button" data-home>← &nbsp; Back to your sets</button>
+      <div class="workspace-heading"><div class="eyebrow"><span class="eyebrow-dot"></span> LET'S MAKE SOMETHING</div><h1 id="editor-title">Create a study set<span>.</span></h1><p>Give your ideas a place to live.</p></div>
+      <form id="set-form">
+        <div class="form-panel"><label for="set-title">SET TITLE</label><input id="set-title" name="title" maxlength="120" placeholder="e.g. Spanish vocabulary" required><label for="set-description">DESCRIPTION <span>OPTIONAL</span></label><textarea id="set-description" name="description" maxlength="500" rows="2" placeholder="What's this set about?"></textarea></div>
+        <div class="cards-heading"><div><h2>Your cards <span>✳</span></h2><p>Add a term and a definition for each card.</p></div><button class="button button-outline" id="add-card" type="button">＋ &nbsp; Add card</button></div>
+        <div id="card-fields"></div>
+        <div class="form-actions"><button class="button button-outline" type="button" data-home>Cancel</button><button class="button button-dark" type="submit">Save study set <span>↗</span></button></div>
+      </form>
+    </section>
+
+    <section id="study-view" class="workspace study-workspace" hidden>
+      <button class="back-link" type="button" data-home>← &nbsp; Back to your sets</button>
+      <div class="workspace-heading"><div class="eyebrow"><span class="eyebrow-dot"></span> TIME TO FOCUS</div><h1 id="study-title"></h1><p id="study-description"></p></div>
+      <div class="study-meta"><span>FLASHCARDS</span><span id="study-progress"></span></div>
+      <button id="flashcard" class="flashcard" type="button" aria-label="Flip flashcard">
+        <span id="flashcard-side">TERM</span><strong id="flashcard-text"></strong><small>↻ &nbsp; Click to flip</small>
+      </button>
+      <div class="study-controls"><button class="button button-outline" id="previous-card" type="button">← &nbsp; Previous</button><span id="study-dots" aria-hidden="true">✦</span><button class="button button-dark" id="next-card" type="button">Next &nbsp; →</button></div>
+    </section>
+  </main>
+  <footer><span><span class="brand-mark">✳</span> recall<span class="brand-dot">.</span></span><span>MADE FOR LEARNING, AT YOUR OWN PACE.</span><span>STAY CURIOUS ✦</span></footer>
+  <template id="card-template"><div class="card-editor"><div class="card-editor-top"><span class="card-number"></span><button type="button" class="remove-card" aria-label="Remove card">×</button></div><div class="card-inputs"><label>TERM<input class="term-input" maxlength="500" placeholder="Enter a term" required></label><label>DEFINITION<input class="definition-input" maxlength="1000" placeholder="Enter a definition" required></label></div></div></template>
+</body>
+</html>
